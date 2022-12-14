@@ -1,3 +1,4 @@
+using DockerAndKubernetes.WebApi.Extensions;
 using DockerAndKubernetes.WebApi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.AddScoped<ITodoItemRepository, TodoItemRepository>();
 
 var app = builder.Build();
 
+app.MigrateDatabase<Program>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
