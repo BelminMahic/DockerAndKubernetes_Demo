@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+
+  todoitemdb:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+  
+  dockerandkubernetes.webapi:
+    image: ${DOCKER_REGISTRY-}dockerandkuberneteswebapi
+    build:
+      context: .
+      dockerfile: DockerAndKubernetes.WebApi/Dockerfile
+
+volumes:
+  postgres_data:
+  pgadmin_data:
